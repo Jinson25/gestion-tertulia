@@ -1,0 +1,9 @@
+.chart-container {
+    height: 100%; /* ApexCharts ajustará el tamaño automáticamente */
+  }
+  @media (max-width: 768px) {
+    .chart-container {
+      height: 300px; /* Define una altura fija para pantallas pequeñas */
+    }
+  }
+  
