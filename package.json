@@ -21,6 +21,7 @@
     "@angular/platform-server": "^18.2.0",
     "@angular/router": "^18.2.0",
     "@angular/ssr": "^18.2.12",
+    "@supabase/supabase-js": "^2.47.10",
     "apexcharts": "^4.3.0",
     "express": "^4.18.2",
     "flowbite": "^2.5.2",
