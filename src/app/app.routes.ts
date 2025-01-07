@@ -8,6 +8,12 @@ const titleGlobal = 'Tertulia |';
 
 export const routes: Routes = [
   {
+    path: '',
+    component: LoginComponent,
+    title: `${titleGlobal} Login`,
+    pathMatch: 'full',
+  },
+  {
     path: 'dashboard',
     component: DashboardComponent,
     title: `${titleGlobal} Dashboard`,
@@ -24,12 +30,6 @@ export const routes: Routes = [
         pathMatch: 'full',
         title: `${titleGlobal} Menu`,
       },
-      {
-        path: 'auth',
-        component: LoginComponent,
-        pathMatch: 'full',
-        title: `${titleGlobal} Auth`,
-      }
     ],
   },
 ];
