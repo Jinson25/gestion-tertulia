@@ -16,7 +16,6 @@ export class LoginComponent {
       const { data, error } = await this.supabaseService.signInWithGoogle();
       if (error) throw error;
       if (data) {
-        this.router.navigate(['/dashboard']);
       }
     } catch (error) {
       console.error('Error al iniciar sesión con Google:', error);

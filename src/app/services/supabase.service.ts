@@ -3,13 +3,14 @@ import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 import { createClient, SupabaseClient, User } from '@supabase/supabase-js';
 import { Router } from '@angular/router';
 import { UserMetadata } from '../interfaces/user.interfaces';
+import { MenuItem, InventoryItem } from '../shared/interfaces/models.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SupabaseService {
   private supabaseUrl: string = 'https://nfxtbfjznxgwdljkokvc.supabase.co';
-  private supabaseKey: string = 'tu-clave-supabase';
+  private supabaseKey: string = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5meHRiZmp6bnhnd2Rsamtva3ZjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzU3NjM3NzEsImV4cCI6MjA1MTMzOTc3MX0.L64wNEKUskpgAB49_SQ0mLT4zpuu4_18YYpZ-r2R8VU';
   private supabase: SupabaseClient | null = null;
 
   constructor(
@@ -99,4 +100,53 @@ export class SupabaseService {
       return null;
     });
   }
-}
+
+    // Métodos para el menú
+    async getMenuItems() {
+      if (!this.supabase) return null;
+      const { data, error } = await this.supabase
+        .from('menu_items')
+        .select('*')
+        .order('created_at', { ascending: false });
+      
+      if (error) throw error;
+      return data;
+    }
+  
+    async createMenuItem(item: MenuItem) {
+      if (!this.supabase) return null;
+      const { data, error } = await this.supabase
+        .from('menu_items')
+        .insert([item])
+        .select()
+        .single();
+      
+      if (error) throw error;
+      return data;
+    }
+  
+    // Métodos para el inventario
+    async getInventoryItems() {
+      if (!this.supabase) return null;
+      const { data, error } = await this.supabase
+        .from('inventory')
+        .select('*')
+        .order('created_at', { ascending: false });
+      
+      if (error) throw error;
+      return data;
+    }
+  
+    async createInventoryItem(item: InventoryItem) {
+      if (!this.supabase) return null;
+      const { data, error } = await this.supabase
+        .from('inventory')
+        .insert([item])
+        .select()
+        .single();
+      
+      if (error) throw error;
+      return data;
+    }
+  }
+
