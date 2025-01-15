@@ -14,7 +14,7 @@ export class SidebarComponent {
     MenuItems: [
       { title: 'Dashboard', link: '/dashboard/', svg: 'dashboard.svg' },
       { title: 'Gestion de Menu', link: '/dashboard/menu', svg: 'menu.svg' },
-      { title: 'Inventario', link: '/dashboard/profile', svg: 'products.svg' },
+      { title: 'Inventario', link: '/dashboard/inventory', svg: 'products.svg' },
       { title: 'Configuracion', link: '/dashboard/settings', svg: 'configuracion.svg' },
       { title: 'Salir', link: '/exit', svg: 'salir.svg' },
     ],

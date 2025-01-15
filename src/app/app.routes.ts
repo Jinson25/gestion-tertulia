@@ -3,6 +3,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { StatsComponent } from './pages/dashboard/stats/stats.component';
 import { MenuComponent } from './pages/dashboard/menu/menu.component';
 import { LoginComponent } from './pages/login/login.component';
+import { InventoryComponent } from './pages/dashboard/inventory/inventory.component';
+import { SettingsComponent } from './pages/dashboard/settings/settings.component';
 
 const titleGlobal = 'Tertulia |';
 
@@ -30,6 +32,18 @@ export const routes: Routes = [
         pathMatch: 'full',
         title: `${titleGlobal} Menu`,
       },
+      {
+        path: 'inventory',
+        component: InventoryComponent,
+        pathMatch: 'full',
+        title: `${titleGlobal} Inventario`,
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent,
+        pathMatch: 'full',
+        title: `${titleGlobal} Configuración`,
+      }
     ],
   },
 ];
