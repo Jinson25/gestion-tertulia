@@ -1,1 +1,56 @@
-<p>home works!</p>
+<main>
+  <div
+    class="absolute top-0 z-[-2] h-screen w-screen rotate-180 transform bg-white bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]"
+  ></div>
+  <section class="flex flex-col items-center justify-center h-screen text-center">
+    <h1 class="text-4xl font-bold mb-4">RESTAURANTE LA TERTULIA</h1>
+    <p class="text-lg text-gray-600 mb-6">Disfruta de una experiencia culinaria única</p>
+    <a
+      href="#menu"
+      class="px-6 py-3 bg-pink-500 text-white rounded-lg shadow-md hover:bg-pink-600 transition"
+    >
+      Ver Menú
+    </a>
+  </section>
+</main>
+<section>
+  <div class="py-12 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center mb-8">Lo Destacado del Restaurante</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <img
+            src="/encebollado.jpg"
+            alt="Plato destacado 1"
+            class="w-full h-48 object-cover rounded-lg mb-4"
+          />
+          <h3 class="text-xl font-semibold mb-2">Plato Especial</h3>
+          <p class="text-gray-600">Una combinación única de sabores que deleitará tu paladar.</p>
+        </div>
+        <div class="text-center">
+          <img
+            src="ambiente.jpeg"
+            alt="Plato destacado 2"
+            class="w-full h-48 object-cover rounded-lg mb-4"
+          />
+          <h3 class="text-xl font-semibold mb-2">Ambiente Acogedor</h3>
+          <p class="text-gray-600">Disfruta de un ambiente cálido y relajante para compartir.</p>
+        </div>
+        <div class="text-center">
+          <img
+            src="/ingredientes.jpeg"
+            alt="Plato destacado 3"
+            class="w-full h-48 object-cover rounded-lg mb-4"
+          />
+          <h3 class="text-xl font-semibold mb-2">Ingredientes Frescos</h3>
+          <p class="text-gray-600">Utilizamos los ingredientes más frescos para cada plato.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  menu diario
+  <app-menu-daily></app-menu-daily>
+</section>
+
