@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FlowbiteService } from '../../services/flowbite.service';
-import { SupabaseService } from '../../services/supabase.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -21,23 +20,16 @@ export class SidebarComponent {
     title: 'TERTULIA',
   };
 
-  constructor(private flowbiteService: FlowbiteService, private supabase:SupabaseService) {}
+  constructor(private flowbiteService: FlowbiteService,) {}
 
   async ngOnInit(): Promise<void> {
-    try {
-      this.user = await this.supabase.getCurrentUser();
-    } catch (error) {
-      console.error('Error al obtener usuario:', error);
+    try{
+      console.log("User")
+    }catch {
+      console.log("pruebas")
     }
   }
 
   async logout() {
-    try {
-      await this.supabase.signOut();
-      this.user = null;
-      window.location.href = '/login';
-    } catch (error) {
-      console.error('Error al cerrar sesión:', error);
-    }
   }
 }

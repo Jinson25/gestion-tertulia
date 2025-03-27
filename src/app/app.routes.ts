@@ -5,13 +5,14 @@ import { MenuComponent } from './pages/dashboard/menu/menu.component';
 import { LoginComponent } from './pages/login/login.component';
 import { InventoryComponent } from './pages/dashboard/inventory/inventory.component';
 import { SettingsComponent } from './pages/dashboard/settings/settings.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const titleGlobal = 'Tertulia |';
 
 export const routes: Routes = [
   {
     path: '',
-    component: LoginComponent,
+    component: HomeComponent,
     title: `${titleGlobal} Login`,
     pathMatch: 'full',
   },
