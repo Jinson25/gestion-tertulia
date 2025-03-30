@@ -1,218 +1,185 @@
-<!-- Hero Section with Dynamic Effects -->
-<main class="min-h-screen bg-white">
-  <div class="relative h-[90vh] flex items-center justify-center overflow-hidden">
-    <!-- Animated Background with Multiple Layers -->
-    <div class="absolute inset-0">
-      <div class="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-orange-600/80 z-20"></div>
-      <div class="absolute inset-0 bg-black/30 z-10"></div>
-      <div class="absolute inset-0 z-0" style="background-image: url('/assets/hero-bg.jpg'); background-size: cover; background-position: center; background-attachment: fixed;"></div>
-    </div>
-    
-    <!-- Floating Decorative Elements -->
-    <div class="absolute inset-0 z-10 overflow-hidden">
-      <div class="absolute top-10 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-xl animate-pulse"></div>
-      <div class="absolute bottom-10 right-10 w-40 h-40 bg-orange-500/10 rounded-full blur-xl animate-pulse delay-700"></div>
-    </div>
-    
-    <div class="relative z-30 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-      <!-- Restaurant Name with Special Effects -->
-      <div class="mb-8 relative">
-        <h1 class="text-6xl md:text-8xl font-bold text-white mb-2 animate-fade-in relative z-10 font-serif tracking-wider">
-          {{restaurantInfo.nombre}}
-        </h1>
-        <div class="absolute inset-0 bg-gradient-to-r from-orange-500 to-blue-500 blur-2xl opacity-30 -z-10 transform scale-150"></div>
+<!-- Hero Section -->
+<main class="min-h-screen">
+  <!-- Navbar -->
+  <nav class="absolute top-0 left-0 right-0 z-50 px-4 py-6">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <a href="#" class="text-4xl font-cursive text-white">{{restaurantInfo.nombre || 'La Tertulia'}}</a>
+      <div class="flex gap-8 items-center">
+        <a href="#inicio" class="text-white hover:text-orange-200 transition-colors">Inicio</a>
+        <a href="#menu" class="text-white hover:text-orange-200 transition-colors">Menu</a>
+        <a href="#sobre-nosotros" class="text-white hover:text-orange-200 transition-colors">Sobre Nosotros</a>
+        <a href="#contacto" class="text-white hover:text-orange-200 transition-colors">Contacto</a>
+        <button class="px-6 py-2 bg-orange-400 text-white rounded-full hover:bg-orange-500 transition-colors">
+          Iniciar Sesión
+        </button>
       </div>
-      
-      <!-- Elegant Tagline -->
-      <p class="text-2xl md:text-3xl text-white/90 mb-12 font-light italic">
-        {{restaurantInfo.descripcion}}
-      </p>
-      
-      <!-- Animated CTA Buttons -->
-      <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-        <button (click)="setActiveSection('menu')" 
-                class="group relative px-8 py-4 bg-orange-500 text-white rounded-full font-semibold overflow-hidden transform hover:scale-105 transition-all duration-300 shadow-lg">
-          <span class="relative z-10">Explorar Menú</span>
-          <div class="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
-        </button>
-        <button (click)="setActiveSection('special')"
-                class="group relative px-8 py-4 bg-blue-600 text-white rounded-full font-semibold overflow-hidden transform hover:scale-105 transition-all duration-300 shadow-lg">
-          <span class="relative z-10">Especial del Día</span>
-          <div class="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-800 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
-        </button>
+    </div>
+  </nav>
+
+  <!-- Hero Content -->
+  <div class="relative h-screen flex items-center justify-center overflow-hidden bg-neutral-900">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-black/60 z-10"></div>
+      <div class="absolute inset-0 z-0">
+        <img src="/hero.png" alt="Restaurant Background" class="w-full h-full object-cover">
       </div>
     </div>
 
-    <!-- Enhanced Floating Info Cards -->
-    <div class="absolute -bottom-12 left-0 right-0 flex justify-center gap-8 px-4">
-      <div class="group bg-white/95 backdrop-blur-lg p-8 rounded-xl shadow-2xl flex items-center gap-6 w-72 transform hover:-translate-y-2 transition-all duration-300">
-        <div class="text-orange-500 transform group-hover:scale-110 transition-transform duration-300">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-        </div>
-        <div>
-          <h3 class="font-bold text-xl text-gray-800 mb-1">Horario</h3>
-          <p class="text-gray-600">{{restaurantInfo.horario}}</p>
-        </div>
-      </div>
-      <div class="group bg-white/95 backdrop-blur-lg p-8 rounded-xl shadow-2xl flex items-center gap-6 w-72 transform hover:-translate-y-2 transition-all duration-300">
-        <div class="text-blue-600 transform group-hover:scale-110 transition-transform duration-300">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-          </svg>
-        </div>
-        <div>
-          <h3 class="font-bold text-xl text-gray-800 mb-1">Ubicación</h3>
-          <p class="text-gray-600">{{restaurantInfo.direccion}}</p>
-        </div>
-      </div>
+    <!-- Main Content -->
+    <div class="relative z-20 text-center px-4">
+      <h1 class="font-cursive text-7xl md:text-8xl text-white mb-6">
+        {{restaurantInfo.nombre || 'La Tertulia'}}
+      </h1>
+      <p class="text-xl md:text-2xl text-white/90 mb-8 font-light max-w-2xl mx-auto">
+        {{restaurantInfo.descripcion || 'Descubre el auténtico sabor de la cocina casera'}} <br>
+        en un ambiente acogedor y cómodo.
+      </p>
+      <button class="px-8 py-3 bg-orange-400 hover:bg-orange-500 text-white rounded-full text-lg transition-all">
+        Ver Menu
+      </button>
     </div>
   </div>
 
-  <!-- Categories Section with Enhanced Design -->
-  <section class="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-blue-50/50">
+  <!-- Categories Section -->
+  <section class="py-20 px-4 bg-gray-50" id="menu">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
-        <h2 class="text-5xl font-bold text-gray-800 mb-4 font-serif">Nuestras Categorías</h2>
+        <h2 class="text-4xl font-bold text-gray-800 mb-4">Nuestro Menú</h2>
         <div class="w-24 h-1 bg-orange-500 mx-auto"></div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <!-- Category Buttons -->
+      <div class="flex flex-wrap justify-center gap-4 mb-12">
         @for (category of categories; track category.id) {
-          <button (click)="filterDishesByCategory(category.id)"
-                  [class.border-orange-500]="selectedCategory === category.id"
-                  class="group bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-transparent relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-blue-500/5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-            <h3 class="text-2xl font-semibold mb-3 text-gray-800 group-hover:text-orange-500 transition-colors relative z-10">{{category.nombre}}</h3>
-            <p class="text-gray-600 relative z-10">{{category.descripcion}}</p>
-          </button>
+        <button (click)="filterDishesByCategory(category.id)"
+          [class.bg-orange-500]="selectedCategory === category.id"
+          [class.text-white]="selectedCategory === category.id"
+          class="px-6 py-3 rounded-full text-lg font-medium transition-all
+                 hover:bg-orange-500 hover:text-white
+                 bg-white text-gray-700">
+          {{category.nombre}}
+        </button>
+        }
+      </div>
+
+      <!-- Dishes Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        @for (dish of filteredDishes; track dish.id) {
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300">
+          <div class="relative h-64">
+            <img [src]="dish.images[0].image_url || defaultImageUrl" [alt]="dish.name"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            @if (dish.vegetariano || dish.vegano) {
+            <span class="absolute top-4 right-4 px-4 py-2 bg-green-500 text-white rounded-full text-sm">
+              {{dish.vegano ? 'Vegano' : 'Vegetariano'}}
+            </span>
+            }
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">{{dish.name}}</h3>
+            <p class="text-gray-600 mb-4">{{dish.short_description}}</p>
+            <div class="flex justify-between items-center">
+              <span class="text-2xl font-bold text-orange-500">${{dish.price}}</span>
+              @if (dish.disponible) {
+              <button class="px-4 py-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 transition-colors">
+                Ordenar
+              </button>
+              } @else {
+              <span class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full">No disponible</span>
+              }
+            </div>
+          </div>
+        </div>
         }
       </div>
     </div>
   </section>
 
-  <!-- Menu Section with Enhanced Cards -->
-  <section class="py-32 px-4 sm:px-6 lg:px-8" [class.hidden]="activeSection !== 'menu'">
+  <!-- Special of the Day Section -->
+  @if (todaySpecial && currentSpecialDish) {
+  <section class="py-20 px-4 bg-gradient-to-br from-blue-900 to-orange-600 text-white">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
-        <h2 class="text-5xl font-bold text-gray-800 mb-4 font-serif">Nuestro Menú</h2>
-        <div class="w-24 h-1 bg-orange-500 mx-auto"></div>
+        <h2 class="text-4xl font-bold mb-4">Especial del Día</h2>
+        <div class="w-24 h-1 bg-white mx-auto"></div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        @for (dish of filteredDishes; track dish.id) {
-          <div class="group bg-white rounded-2xl shadow-xl overflow-hidden transform hover:-translate-y-2 transition-all duration-500">
-            <div class="relative h-64 overflow-hidden">
-              <img [src]="dish.imagen" [alt]="dish.nombre" 
-                   class="w-full h-full object-cover transform group-hover:scale-110 transition-all duration-700">
-              @if (dish.vegetariano || dish.vegano) {
-                <div class="absolute top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
-                  {{dish.vegano ? 'Vegano' : 'Vegetariano'}}
-                </div>
-              }
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-            <div class="p-8">
-              <h3 class="text-2xl font-bold mb-3 text-gray-800">{{dish.nombre}}</h3>
-              <p class="text-gray-600 mb-6">{{dish.descripcion}}</p>
-              <div class="flex items-center justify-between mb-4">
-                <span class="text-3xl font-bold text-orange-500">${{dish.precio.toFixed(2)}}</span>
-                @if (dish.disponible) {
-                  <span class="px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">Disponible</span>
-                } @else {
-                  <span class="px-4 py-2 bg-red-100 text-red-800 rounded-full text-sm font-medium">No Disponible</span>
-                }
-              </div>
-              @if (dish.alergenos.length > 0) {
-                <div class="flex flex-wrap gap-2">
-                  @for (alergeno of dish.alergenos; track alergeno) {
-                    <span class="px-3 py-1 bg-red-50 text-red-700 rounded-full text-sm font-medium">{{alergeno}}</span>
-                  }
-                </div>
-              }
-            </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="relative group rounded-2xl overflow-hidden">
+          <img [src]="currentSpecialDish.images[0].image_url || defaultImageUrl" [alt]="todaySpecial.nombre"
+            class="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110">
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           </div>
-        }
+        </div>
+        
+        <div class="lg:pl-8">
+          <h3 class="text-3xl font-bold mb-4">{{todaySpecial.nombre}}</h3>
+          <p class="text-xl mb-6 text-white/90">{{todaySpecial.descripcion}}</p>
+          <div class="flex items-center gap-4 mb-8">
+            <span class="text-4xl font-bold">${{todaySpecial.precio_especial.toFixed(2)}}</span>
+            <span class="text-xl line-through text-white/70">
+              ${{currentSpecialDish.price}}
+            </span>
+          </div>
+          <button
+            class="px-8 py-4 bg-white text-blue-900 rounded-full font-bold text-lg hover:bg-orange-100 transition-colors">
+            Ordenar Especial
+          </button>
+        </div>
       </div>
     </div>
   </section>
+  }
 
-  <!-- Special of the Day Section with Enhanced Design -->
-  <section class="py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden" [class.hidden]="activeSection !== 'special'">
-    <!-- Decorative Background -->
-    <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-orange-600"></div>
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute inset-0 bg-[url('/assets/pattern.svg')] bg-repeat bg-center"></div>
-    </div>
-    
-    <div class="max-w-7xl mx-auto relative z-10">
+  <!-- Contact Section -->
+  <section class="py-20 px-4 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
-        <h2 class="text-5xl font-bold text-white mb-4 font-serif">Especial del Día</h2>
-        <div class="w-24 h-1 bg-white/50 mx-auto"></div>
+        <h2 class="text-4xl font-bold text-gray-800 mb-4">Contáctanos</h2>
+        <div class="w-24 h-1 bg-orange-500 mx-auto"></div>
       </div>
-      @if (todaySpecial) {
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="relative group">
-            <!-- Glowing Effect -->
-            <div class="absolute -inset-4 z-0">
-              <div class="w-full h-full mx-auto opacity-30 blur-2xl filter group-hover:opacity-70 transition duration-1000 group-hover:duration-200 animate-pulse-slow bg-gradient-to-r from-yellow-600 via-orange-500 to-orange-600"></div>
-            </div>
-            <!-- Image Container -->
-            <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
-              <img [src]="getSpecialDish(todaySpecial.plato_id)?.imagen" 
-                   [alt]="todaySpecial.nombre"
-                   class="w-full transform group-hover:scale-110 transition-transform duration-700">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+          <h3 class="text-2xl font-bold mb-4">Información de Contacto</h3>
+          <div class="space-y-4">
+            <p class="flex items-center gap-3">
+              <span class="text-orange-500">📍</span>
+              {{restaurantInfo.direccion}}
+            </p>
+            <p class="flex items-center gap-3">
+              <span class="text-orange-500">📞</span>
+              {{restaurantInfo.telefono}}
+            </p>
+            <p class="flex items-center gap-3">
+              <span class="text-orange-500">🕒</span>
+              {{restaurantInfo.horario}}
+            </p>
           </div>
-          <div class="lg:pl-12 text-white">
-            <h3 class="text-4xl font-bold mb-6 font-serif">{{todaySpecial.nombre}}</h3>
-            <p class="text-xl mb-8 text-white/90 leading-relaxed">{{todaySpecial.descripcion}}</p>
-            <div class="flex items-center gap-6 mb-10">
-              <span class="text-5xl font-bold">${{todaySpecial.precio_especial.toFixed(2)}}</span>
-              @if (getSpecialDish(todaySpecial.plato_id)?.precio?.toFixed(2)) {
-                <span class="text-2xl line-through text-white/70">
-                  ${{getSpecialDish(todaySpecial.plato_id)?.precio?.toFixed(2)}}
-                </span>
-              }
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+          <h3 class="text-2xl font-bold mb-4">Envíanos un Mensaje</h3>
+          <form class="space-y-4">
+            <div>
+              <input type="text" placeholder="Nombre"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500">
             </div>
-            <button class="group relative px-10 py-5 bg-white text-blue-900 rounded-full font-bold text-lg overflow-hidden transform hover:scale-105 transition-all duration-300 shadow-2xl">
-              <span class="relative z-10">Ordenar Ahora</span>
-              <div class="absolute inset-0 bg-gradient-to-r from-orange-100 to-orange-200 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+            <div>
+              <input type="email" placeholder="Email"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500">
+            </div>
+            <div>
+              <textarea rows="4" placeholder="Mensaje"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500"></textarea>
+            </div>
+            <button type="submit"
+              class="w-full px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors">
+              Enviar Mensaje
             </button>
-          </div>
-        </div>
-      }
-    </div>
-  </section>
-
-  <!-- Contact Section with Enhanced Design -->
-  <section class="py-32 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-white pointer-events-none"></div>
-    <div class="max-w-7xl mx-auto relative z-10">
-      <div class="text-center mb-16">
-        <h2 class="text-5xl font-bold text-gray-800 mb-4 font-serif">Contáctanos</h2>
-        <div class="w-24 h-1 bg-orange-500 mx-auto"></div>
-      </div>
-      <div class="flex flex-col md:flex-row justify-center gap-10 items-stretch">
-        <div class="group bg-gradient-to-br from-blue-50 to-blue-100/50 p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 flex-1 max-w-md transform hover:-translate-y-2">
-          <div class="text-blue-600 mb-6 transform group-hover:scale-110 transition-transform duration-300">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-            </svg>
-          </div>
-          <h3 class="text-2xl font-bold mb-4 text-gray-800 text-center">Llámanos</h3>
-          <p class="text-gray-600 text-center text-lg">{{restaurantInfo.telefono}}</p>
-        </div>
-        <div class="group bg-gradient-to-br from-orange-50 to-orange-100/50 p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 flex-1 max-w-md transform hover:-translate-y-2">
-          <div class="text-orange-500 mb-6 transform group-hover:scale-110 transition-transform duration-300">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-          </div>
-          <h3 class="text-2xl font-bold mb-4 text-gray-800 text-center">Visítanos</h3>
-          <p class="text-gray-600 text-center text-lg">{{restaurantInfo.direccion}}</p>
+          </form>
         </div>
       </div>
     </div>

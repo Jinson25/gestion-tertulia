@@ -1,11 +1,11 @@
 export const restaurante = [
   {
     restaurante: {
-      nombre: 'Nombre del Restaurante',
-      descripcion: 'Breve descripción del restaurante',
-      direccion: 'Dirección completa',
-      telefono: 'Número de contacto',
-      horario: 'Horario de atención',
+      nombre: 'La Tertulia',
+      descripcion: 'Descubre el auténtico sabor de la cocina casera',
+      direccion: 'Bartolome De las Casas, 11',
+      telefono: '31211111',
+      horario: 'Lunes a Domingo de 12:00 a 15:00',
     },
   },
 ];
