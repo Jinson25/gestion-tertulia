@@ -1,5 +1,10 @@
 export const environment = {
-    production: true,
-    supabaseUrl: 'https://nfxtbfjznxgwdljkokvc.supabase.co',
-    supabaseKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5meHRiZmp6bnhnd2Rsamtva3ZjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzU3NjM3NzEsImV4cCI6MjA1MTMzOTc3MX0.L64wNEKUskpgAB49_SQ0mLT4zpuu4_18YYpZ-r2R8VU'
-  };
+  production: true,
+  apiKey: 'AIzaSyCbF7EBi2cCfa6aP9dv9PKoS3-Z0tsmHmA',
+  authDomain: 'la-tertulia-67040.firebaseapp.com',
+  projectId: 'la-tertulia-67040',
+  storageBucket: 'la-tertulia-67040.firebasestorage.app',
+  messagingSenderId: '169263212116',
+  appId: '1:169263212116:web:b9db2ed9d87a124c6aafc1',
+  measurementId: 'G-R2N9RSDQ9Z',
+};
